@@ -13,5 +13,16 @@
 
   <body>
     <h1>Hello World!</h1>
+    <form id='order_form' action="/orders" method="POST">
+      <div>
+        <label for="user_id">user_id</label>
+        <input type="text" name="user_id" id="user_id" />
+      </div>
+      <div>
+        <label for="dish_list">dish_list</label>
+        <input type="text" name="dish_list" id="dish_list" />
+      </div>
+      <input type="submit" value="Order" />
+    </form>
   </body>
 </html>
