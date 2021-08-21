@@ -21,3 +21,6 @@
 #### Login
 - GET /login                - Browse login page
 - POST /login               - Login a user
+
+#### Home 
+- GET /                     - Home page
