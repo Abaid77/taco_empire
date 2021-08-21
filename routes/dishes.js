@@ -23,7 +23,7 @@ module.exports = (db) => {
   });
 
   router.get("/:dish_id", (req, res) => {
-    let query = `SELECT * FROM dishes WHERE id = $1`;
+    let query = `SELECT * FROM dishes WHERE id = $1;`;
     console.log(query);
     console.log("req.params", req.params.dish_id);
     db.query(query, [req.params.dish_id])
