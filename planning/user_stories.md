@@ -12,3 +12,10 @@
 
 7. As a user I can login because I want to stay updated on my order.
 
+Menu Top Navbar
+- Login
+- Register
+- Place Order
+- Current Order
+
+
