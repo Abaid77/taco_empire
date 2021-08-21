@@ -45,12 +45,14 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const dishesRoutes = require("./routes/dishes");
 const loginRoutes = require("./routes/login");
+const ordersRoutes = require("./routes/orders");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/users", usersRoutes(db));
 app.use("/dishes", dishesRoutes(db));
-app.use("/login", loginRoutes(db))
+app.use("/login", loginRoutes(db));
+app.use("/orders", ordersRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page

@@ -1,5 +1,5 @@
 /*
- * All routes for Login are defined here
+ * All routes for Orders are defined here
  * Since this file is loaded in server.js into api/users,
  *   these routes are mounted onto /users
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
@@ -10,12 +10,16 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    // display login page
-  });
-
-  router.get("/:user_id", (req, res) => {
-    req.session.user_id = req.params.id;
-    res.redirect('/');
+    db.query(`SELECT * FROM orders;`)
+      .then(data => {
+        const users = data.rows;
+        res.json({ users });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
   });
   return router;
 };
