@@ -11,7 +11,7 @@ const router = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     // display login page
-    res.render("/login");
+    res.render("./login");
   });
 
   router.get("/:user_id", (req, res) => {
@@ -21,7 +21,8 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     const email = req.body.email;
-    // check for email address in data base
+    console.log(email)
+    // check for owners email
     if (email === "1@example.com") {
       res.status(403).send("Owner Login");
       return;
