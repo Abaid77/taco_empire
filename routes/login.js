@@ -11,12 +11,24 @@ const router = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     // display login page
-    res.send("Login Home Page");
+    res.render("/login");
   });
 
   router.get("/:user_id", (req, res) => {
     // req.session.user_id = req.params.id;
     res.redirect("/");
+  });
+
+  router.post("/", (req, res) => {
+    const email = req.body.email;
+    // check for email address in data base
+    if (email === "1@example.com") {
+      res.status(403).send("Owner Login");
+      return;
+    } else {
+      res.redirect('/orders')
+    }
+
   });
   return router;
 };
