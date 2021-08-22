@@ -7,6 +7,12 @@
 
 const express = require("express");
 const router = express.Router();
+const cookieSession = require('cookie-session');
+
+router.use(cookieSession({
+  name: 'user_id',
+  keys: ["super secret 1", "super secret 2"],
+}));
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -24,9 +30,11 @@ module.exports = (db) => {
     console.log(email)
     // check for owners email
     if (email === "1@example.com") {
+      req.session.user_id = 1;
       res.status(403).send("Owner Login");
       return;
     } else {
+      req.session.user_id = 2;
       res.redirect('/orders')
     }
 
