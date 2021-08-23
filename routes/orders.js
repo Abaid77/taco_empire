@@ -10,6 +10,9 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    if(!req.session.user_id) {
+      res.redirect('./login')
+    }
     db.query(`SELECT * FROM orders;`)
       .then((data) => {
         const orders = data.rows;
