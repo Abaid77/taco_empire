@@ -1,0 +1,10 @@
+$primary-color:#fb8c00;
+footer{
+  background-color: $primary-color;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 1rem 0;
+  p{
+    margin: 0;
+  }
+}
