@@ -12,8 +12,8 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM orders;`)
       .then((data) => {
-        const users = data.rows;
-        res.json({ users });
+        const orders = data.rows;
+        res.render("order", { orders });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
