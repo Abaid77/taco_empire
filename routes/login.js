@@ -33,7 +33,7 @@ module.exports = (db) => {
     // check for owners email
     if (email === "1@example.com") {
       req.session.user_id = 1;
-      res.status(403).send("Owner Login");
+      res.redirect("/owner");
       return;
     } else {
       req.session.user_id = 2;
