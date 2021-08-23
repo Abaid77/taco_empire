@@ -8,6 +8,7 @@
 const express = require("express");
 const router = express.Router();
 const cookieSession = require("cookie-session");
+const userCookie = require("../helper.js");
 
 router.use(
   cookieSession({
@@ -20,7 +21,9 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     // display owner page
     // check for owners email
-    res.render("owner");
+    const user = req.session.user_id;
+    const templateVars = { user };
+    res.render("owner", templateVars);
   });
 
   return router;

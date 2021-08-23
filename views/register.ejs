@@ -2,8 +2,12 @@
 <%- include('./partials/_header') %>
 
 <main class="col-md-6 offset-md-3 mt-4">
-  <p class="h5 text-align-center">Register</p>
-  <form action="/login" method="POST" id='login'>
+  <p class="h5 text-center">Register</p>
+  <form action="/login/register" method="POST" id='login'>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="name" class="form-control" id="name" name="name" placeholder="Your name">
+    </div>
     <div class="form-group">
       <label for="email">Email address</label>
       <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
@@ -11,6 +15,10 @@
     <div class="form-group">
       <label for="password">Password</label>
       <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="phone" class="form-control" id="phone" name="phone" placeholder="Phone number">
     </div>
     <button type="submit" class="btn btn-primary mt-2">Login</button>
   </form>

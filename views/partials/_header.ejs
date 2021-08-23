@@ -1,18 +1,17 @@
 <header>
   <nav class="navbar navbar-expand-md">
-    <a class="navbar-brand" href="/urls">TACO EMPIRE</a>
+    <a class="navbar-brand" href="/">TACO EMPIRE</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-          <a class="nav-item nav-link" href="/urls">My URLs</a>
-          <a class="nav-item nav-link" href="/urls/new" <%= typeof user === 'undefined' ? 'hidden' : null%> >Create New URL</a>
-      </div>
+        <a class="nav-item nav-link" href="/orders/">Current Order</a>
+        <a class="nav-item nav-link" href="/">Order Now</a>
+    </div>
       <% if(typeof user !== 'undefined'){ %>
         <form class="d-flex" action="/login/logout" method="POST">
-          <p class="h4 align-self-center" style="margin: 0 !important;">Logged In As: <%= user.email %> </p class="t-5">
-          <button class="btn btn-outline-dark ml-2" type="submit">Logout</button>
+          <button class="btn btn-light ml-2" type="submit">Logout</button>
         </form>
       <% } else { %>
         <div class="navbar-nav">

@@ -13,7 +13,9 @@ module.exports = (db) => {
     db.query(`SELECT * FROM orders;`)
       .then((data) => {
         const orders = data.rows;
-        res.render("order", { orders });
+        const user = req.session.user_id;
+        const templateVars = { user, orders };
+        res.render("order", templateVars);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

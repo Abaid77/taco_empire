@@ -19,20 +19,19 @@ router.use(
 module.exports = (db) => {
   router.get("/", (req, res) => {
     // display login page
-    res.render("./login");
+    const user = req.session.user_id;
+    const templateVars = { user };
+    res.render("./login", templateVars);
   });
 
   router.get("/register", (req, res) => {
-
-    res.render('./register');
+    res.render("./register");
   });
 
   router.get("/:user_id", (req, res) => {
     // req.session.user_id = req.params.id;
     res.redirect("/");
   });
-
-
 
   router.post("/", (req, res) => {
     const email = req.body.email;
