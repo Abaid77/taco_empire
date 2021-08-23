@@ -9,7 +9,7 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
-const cookieSession = require('cookie-session');
+const cookieSession = require("cookie-session");
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -34,10 +34,12 @@ app.use(
   })
 );
 app.use(express.static("public"));
-app.use(cookieSession({
-  name: 'user_id',
-  keys: ["super secret 1", "super secret 2"],
-}));
+app.use(
+  cookieSession({
+    name: "user_id",
+    keys: ["super secret 1", "super secret 2"],
+  })
+);
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -45,6 +47,7 @@ const usersRoutes = require("./routes/users");
 const dishesRoutes = require("./routes/dishes");
 const loginRoutes = require("./routes/login");
 const ordersRoutes = require("./routes/orders");
+const ownerRoutes = require("./routes/owner");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -52,6 +55,7 @@ app.use("/users", usersRoutes(db));
 app.use("/dishes", dishesRoutes(db));
 app.use("/login", loginRoutes(db));
 app.use("/orders", ordersRoutes(db));
+app.use("/owner", ownerRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -59,7 +63,7 @@ app.use("/orders", ordersRoutes(db));
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   const user = req.session.user_id;
-  const templateVars = { user }
+  const templateVars = { user };
   res.render("index", templateVars);
 });
 
