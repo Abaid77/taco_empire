@@ -22,10 +22,17 @@ module.exports = (db) => {
     res.render("./login");
   });
 
+  router.get("/register", (req, res) => {
+
+    res.render('./register');
+  });
+
   router.get("/:user_id", (req, res) => {
     // req.session.user_id = req.params.id;
     res.redirect("/");
   });
+
+
 
   router.post("/", (req, res) => {
     const email = req.body.email;
