@@ -3,16 +3,57 @@
 <main class="container-fluid order-layout">
   <article>
     <div>
-      <img src="https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1071&q=80" alt="beef taco" />
+      <p class="h5">Orders Awating Response</p>
     </div>
     <div>
-      <p class="h3">Beef Taco</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ea earum corrupti voluptate. Voluptate dolor suscipit quos magni laudantium fugit, esse ab fugiat eveniet quaerat soluta inventore aspernatur cupiditate nam!</p>
-        <div class="input-group mb-3">
-          <span class="input-group-text">Qty</span>
-          <input type="number" class="form-control" value="1" min="1" aria-label="Order Quantity">
-          <button class="btn btn-success">Order Now</button>
-        </div>
+      <table class="table table-striped">
+        <tr>
+          <th>Order #</th>
+          <th>Username</th>
+          <th>Dish List</th>
+          <th>Order Time</th>
+          <th>Prep Time</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Nahom</td>
+          <td>chicken(1),beef(2)</td>
+          <td>4:50pm</td>
+          <td>
+            <form class="duration">
+              <div class="input-group mb-3">
+                <input type="number" value="0" min="0" class="form-control" aria-label="Amount (to the nearest dollar)">
+                <div class="input-group-append">
+                  <span class="input-group-text">min</span>
+                </div>
+                <button class="btn btn-info">Submit</button></td>
+              </div>
+            </form>
+        </tr>
+      </table>
+    </div>
+  </article>
+  <article>
+    <div>
+      <p class="h5">Responded Orders</p>
+    </div>
+    <div>
+      <table class="table table-striped">
+        <tr>
+          <th>Order #</th>
+          <th>Username</th>
+          <th>Dish List</th>
+          <th>Order Time</th>
+          <th>Pickup Time</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Nahom</td>
+          <td>chicken(1),beef(2)</td>
+          <td>4:50pm</td>
+          <td>5:10pm</td>
+        </tr>
+      </table>
     </div>
   </article>
 </main>
