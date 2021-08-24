@@ -10,7 +10,7 @@ main.order-layout{
 
 article {
   background-color: #fff;
-  max-width: 650px;
+  max-width: 350px;
   display: flex;
   justify-content: space-between;
   border-radius: .5rem;
@@ -25,7 +25,7 @@ article {
       max-width: 100%;
       max-height: 184.7px;
       border:8px solid #fff;
-      box-shadow: 5px 12px 10px 1px rgba(0, 0, 255, .2);
+      box-shadow: 5px 12px 10px 1px rgba(126, 126, 126, .2);
     }
   }
   & > :nth-child(2){
