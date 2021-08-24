@@ -3,19 +3,14 @@
 <main class="container-fluid order-layout">
   <div class="order-summary">
     <div>
-      <table class="table table-striped table-hover">
-        <tr>
-          <td>1</td>
-          <td>Beef Taco</td>
-          <td>$5.00</td>
-          <td>X</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Beef Taco</td>
-          <td>$5.00</td>
-          <td>X</td>
-        </tr>
+      <p class="h5 text-center">Order Summary</p>
+      <table class="table table-striped table-hover" id='table-summary'>
+        <tbody id='tbody'>
+          <tr id='beef'></tr>
+          <tr id='chicken'></tr>
+          <tr id='shrimp'></tr>
+        </tbody>
+
       </table>
       <p>Subtotal: <span id='subtotal'></span></p>
       <p>Tax: <span id='tax'></span></p>
@@ -30,6 +25,7 @@
       </div>
       <div>
         <p class="h3">Beef Taco</p>
+        <p>Price: $5</p>
         <p>Delicious beef taco. Topped with Onion,tometos,cheese.Delicious beef taco. Topped with Onion,tometos,cheese.</p>
           <div class="input-group mb-3">
             <form class="d-flex" id='beef-taco'>
@@ -46,6 +42,7 @@
       </div>
       <div>
         <p class="h3">Chicken Taco</p>
+        <p>Price: $6</p>
         <p>Delicious Chicken taco. Topped with Onion,tometos,cheese.Delicious beef taco. Topped with Onion,tometos,cheese.</p>
           <div class="input-group mb-3">
             <form class="d-flex" id='chicken-taco'>
@@ -62,6 +59,7 @@
       </div>
       <div>
         <p class="h3">Shrimp Taco</p>
+        <p>Price: $8</p>
         <p>Delicious Shrimp taco. Topped with Onion,tometos,cheese.Delicious beef taco. Topped with Onion,tometos,cheese.</p>
           <div class="input-group mb-3">
             <form class="d-flex" id='shrimp-taco'>
@@ -75,5 +73,4 @@
 
   </div>
 </main>
-<button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
 <%- include('./partials/_footer') %>
