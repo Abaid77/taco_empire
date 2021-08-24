@@ -10,6 +10,7 @@ const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
 const cookieSession = require("cookie-session");
+const { textOwner, textUser } = require("./send_sms");
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -65,6 +66,13 @@ app.get("/", (req, res) => {
   const user = req.session.user_id;
   const templateVars = { user };
   res.render("index", templateVars);
+});
+
+app.post("/send-sms/:type", (req, res) => {
+  if (req.params.type === "owner") {
+    textOwner();
+  }
+  res.json({ success: true });
 });
 
 app.listen(PORT, () => {

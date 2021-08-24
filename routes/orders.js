@@ -45,15 +45,14 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     const { user_id, dish_list } = req.body;
-    // console.log("user_id", user_id, "dish_list", dish_list);
+    console.log("user_id", user_id, "dish_list", dish_list);
     db.query(
       `INSERT INTO orders (user_id,dish_list) VALUES ($1, ARRAY [${dish_list}]);`,
       [user_id]
     )
       .then((data) => {
         const orders = data.rows;
-        console.log(orders);
-        return orders;
+        res.json({ success: true });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

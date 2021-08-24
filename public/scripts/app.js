@@ -97,15 +97,47 @@ $(() => {
     });
   });
 
-  function refresh () {
+  $("#place-order").on("click", function (event) {
+    const dishList = [];
+    // Create dishlist array to add to DB
+    for (let x = 0; x < beefTacoCount; x++) {
+      dishList.push(1);
+    }
+    for (let x = 0; x < chickenTacoCount; x++) {
+      dishList.push(2);
+    }
+    for (let x = 0; x < shrimpTacoCount; x++) {
+      dishList.push(3);
+    }
+    $.get("/users/").then((res) => {
+      const user_id = res.users[0].id;
+      $.post("/orders/", { user_id: user_id, dish_list: dishList }).then(
+        (res) => {
+          if (res.success) {
+            // $.post("/send-sms/owner").then((res) => {
+            //   console.log(res);
+            // });
+            window.location = `/orders/${user_id}`;
+          }
+        }
+      );
+    });
+  });
+
+  // To refresh the total prices & tax inside order summary page
+  function refresh() {
     $("#subtotal").empty();
-    let subtotal = Number(((beefTacoCount * 5) + (chickenTacoCount * 6) + (shrimpTacoCount * 8)).toFixed(2));
-    let tax = Number((subtotal * .05).toFixed(2));
+    let subtotal = Number(
+      (beefTacoCount * 5 + chickenTacoCount * 6 + shrimpTacoCount * 8).toFixed(
+        2
+      )
+    );
+    let tax = Number((subtotal * 0.05).toFixed(2));
     let total = tax + subtotal;
     $("#subtotal").append(subtotal);
     $("#tax").empty();
     $("#tax").append(tax);
     $("#total").empty();
     $("#total").append(total);
-  };
+  }
 });

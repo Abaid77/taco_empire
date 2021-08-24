@@ -1,26 +1,28 @@
 <%- include('./partials/_head') %>
     <%- include('./partials/_header') %>
-<main class="container-fluid order-layout">
-  <article>
+<main class="container-fluid order-layout col-md-8 offset-2 justify-content-center">
+  <article class="user-orders">
     <div>
-      <p class="h5">Responded Orders</p>
+      <p class="h4">Your Orders</p>
     </div>
     <div>
       <table class="table table-striped">
         <tr>
           <th>Order #</th>
-          <th>Dish List</th>
+          <th>Order</th>
           <th>Order Time</th>
-          <th>Pickup Time</th>
-          <th>Order Total</th>
+          <th>Order Pre-time</th>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>chicken(1*$6),beef(2*$5)</td>
-          <td>4:50pm</td>
-          <td>5:10pm</td>
-          <td>$10.5</td>
-        </tr>
+        <tbody id="your-orders">
+          <% orders.forEach(order => { %>
+            <tr>
+              <td><%= order.id %> </td>
+              <td><%= order.dish_list %></td>
+              <td><%= order.start_at %> </td>
+              <td><%= order.duration === 0 ? "pending" : order.duration +" min"%> </td>
+            </tr>
+          <% }) %>
+        </tbody>
       </table>
     </div>
   </article>
