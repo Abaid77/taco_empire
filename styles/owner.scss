@@ -1,11 +1,19 @@
-article{
-  width: 100%;
+article.owner{
+  width: 45%;
+  max-width: none;
   flex-direction: column;
   justify-content: flex-start;
+
   table{
     border:1px solid #000;
   .duration{
     display: flex;
   }
+  }
+}
+
+@media screen and (max-width:1400px) {
+  article.owner{
+    width: 80%;
   }
 }
