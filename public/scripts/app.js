@@ -22,11 +22,13 @@ $(() => {
         </tr>
       `;
         $("#tbody").append($row);
+        refresh();
       }
     }
     // Event handler to remove order item
     $("#remove-beef").on("click", function () {
       beefTacoCount = 0;
+      refresh();
       $("#table-summary").find("#beef").empty();
     });
   });
@@ -51,12 +53,14 @@ $(() => {
         </tr>
       `;
         $("#tbody").append($row);
+        refresh();
       }
     }
 
     // Event handler to remove order item
     $("#remove-chicken").on("click", function () {
       chickenTacoCount = 0;
+      refresh();
       $("#table-summary").find("#chicken").empty();
     });
   });
@@ -81,13 +85,27 @@ $(() => {
         </tr>
       `;
         $("#tbody").append($row);
+        refresh();
       }
     }
 
     // Event handler to remove order item
     $("#remove-shrimp").on("click", function () {
       shrimpTacoCount = 0;
+      refresh();
       $("#table-summary").find("#shrimp").empty();
     });
   });
+
+  function refresh () {
+    $("#subtotal").empty();
+    let subtotal = Number(((beefTacoCount * 5) + (chickenTacoCount * 6) + (shrimpTacoCount * 8)).toFixed(2));
+    let tax = Number((subtotal * .05).toFixed(2));
+    let total = tax + subtotal;
+    $("#subtotal").append(subtotal);
+    $("#tax").empty();
+    $("#tax").append(tax);
+    $("#total").empty();
+    $("#total").append(total);
+  };
 });
