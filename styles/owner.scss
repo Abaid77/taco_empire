@@ -4,6 +4,14 @@ article.owner{
   flex-direction: column;
   justify-content: flex-start;
 
+  .duration {
+    display: flex;
+    flex-wrap: nowrap;
+    input{
+      width: 80px;
+    }
+  }
+
   table{
     border:1px solid #000;
   .duration{
@@ -12,7 +20,7 @@ article.owner{
   }
 }
 
-@media screen and (max-width:1400px) {
+@media screen and (max-width:1200px) {
   article.owner{
     width: 80%;
   }
