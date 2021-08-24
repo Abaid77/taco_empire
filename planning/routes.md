@@ -12,8 +12,8 @@
 - GET /dishes/:dish_id      - Read specific dish
 
 #### Order
-- GET /orders               - Browse orders
-- GET /orders/:order_id     - Read specific order
+- GET /orders               - Browse orders page
+- GET /orders/:user_id      - Read specific users order
 - POST /orders              - Create a new order
 - PUT /orders/:order_id     - Edit a specific order
 - DELETE /orders/:order_id  - Delete a specific order
