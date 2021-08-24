@@ -8,7 +8,6 @@
 const express = require("express");
 const router = express.Router();
 const cookieSession = require("cookie-session");
-const userCookie = require("../helper.js");
 
 router.use(
   cookieSession({
