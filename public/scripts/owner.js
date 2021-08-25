@@ -62,7 +62,7 @@ $(() => {
   });
 
   // Inside Owner page duration AJAX request section
-  $(this).on("submit", function (event) {
+  $("#new-orders").on("submit", function (event) {
     event.preventDefault();
     const $orderId = $(event.target).parent().siblings(".order-id").text();
     const $duration = $(event.target).find(".duration-qty").val();
