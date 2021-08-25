@@ -25,7 +25,7 @@ $(() => {
     orders.forEach((order, index) => {
       const $new_order = `
     <tr>
-      <td>${order.id}</td>
+      <td class="order-id">${order.id}</td>
       <td>${order.name}</td>
       <td id="dishList">
       ${
@@ -48,7 +48,7 @@ $(() => {
       <td>
         <form class="duration">
           <div class="input-group mb-3">
-            <input type="number" value="0" min="0" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <input type="number" value="0" min="0" class="form-control duration-qty" aria-label="Amount (to the nearest dollar)">
             <div class="input-group-append">
               <span class="input-group-text">min</span>
             </div>
@@ -60,9 +60,22 @@ $(() => {
       $("#new-orders").prepend($new_order);
     });
   });
+
   // Inside Owner page duration AJAX request section
-  $("form.duration").on("submit", function (event) {
+  $(this).on("submit", function (event) {
     event.preventDefault();
-    console.log("form duration!");
+    const $orderId = $(event.target).parent().siblings(".order-id").text();
+    const $duration = $(event.target).find(".duration-qty").val();
+
+    $.ajax({
+      type: "PUT",
+      url: "/owner/",
+      data: {
+        orderId: $orderId,
+        duration: $duration,
+      },
+    }).then((res) => {
+      console.log(res);
+    });
   });
 });

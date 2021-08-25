@@ -44,5 +44,23 @@ module.exports = (db) => {
       .catch((err) => res.json(err.message));
   });
 
+  router.put("/", (req, res) => {
+    const { orderId, duration } = req.body;
+
+    db.query(
+      `
+      UPDATE orders SET duration = $1
+      WHERE id = $2
+      RETURNING *
+      ;
+    `,
+      [duration, orderId]
+    )
+      .then((response) => {
+        res.json(response.rows[0]);
+      })
+      .catch((err) => res.json(err.message));
+  });
+
   return router;
 };
