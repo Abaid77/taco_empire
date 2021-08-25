@@ -1,5 +1,6 @@
 $(() => {
   $.get("owner/new-orders").then((orders) => {
+    // Store dish_list as object and use dish name as a key
     const dishList = orders.map((order) => {
       const dish = {};
       for (let item of order.dish_list) {
@@ -19,6 +20,8 @@ $(() => {
       }
       return dish;
     });
+
+    // Display list of new orders
     orders.forEach((order, index) => {
       const $new_order = `
     <tr>
