@@ -1,6 +1,6 @@
 <%- include('./partials/_head') %>
     <%- include('./partials/_header') %>
-<main class="container-fluid order-layout col-md-8 offset-2 justify-content-center">
+<main class="container-fluid order-layout col-10 offset-1 justify-content-center">
   <article class="user-orders">
     <div>
       <p class="h4">Your Orders</p>
@@ -17,8 +17,12 @@
           <% orders.forEach(order => { %>
             <tr>
               <td><%= order.id %> </td>
-              <td><%= order.dish_list %></td>
-              <td><%= order.start_at %> </td>
+              <td>
+                Beef(<%= orderList[order.id].beef %>),
+                Chicken(<%= orderList[order.id].chicken %>),
+                Shrimp(<%= orderList[order.id].shrimp %>)
+              </td>
+              <td><%= order.start_time %> </td>
               <td><%= order.duration === 0 ? "pending" : order.duration +" min"%> </td>
             </tr>
           <% }) %>

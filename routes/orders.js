@@ -31,11 +31,39 @@ module.exports = (db) => {
       res.redirect("/login");
       return;
     }
-    db.query(`SELECT * FROM orders WHERE user_id = $1;`, [req.session.user_id])
+    db.query(
+      `SELECT *,
+      to_char(start_at::timestamp, 'HH:MI:SSPM') AS start_time
+      FROM orders WHERE user_id = $1 ORDER BY id DESC;`,
+      [req.session.user_id]
+    )
       .then((data) => {
         const orders = data.rows;
+        const orderList = {};
+        for (let order of orders) {
+          const dishList = {};
+          for (let dish of order.dish_list) {
+            switch (dish) {
+              case 1:
+                dishList.beef === undefined
+                  ? (dishList.beef = 1)
+                  : (dishList.beef += 1);
+                break;
+              case 2:
+                dishList.chicken === undefined
+                  ? (dishList.chicken = 1)
+                  : (dishList.chicken += 1);
+              case 3:
+                dishList.shrimp === undefined
+                  ? (dishList.shrimp = 1)
+                  : (dishList.shrimp += 1);
+            }
+          }
+          orderList[order.id] = dishList;
+        }
+        console.log("orderList", orderList);
         const user = req.session.user_id;
-        const templateVars = { user, orders };
+        const templateVars = { user, orders, orderList };
         res.render("user_orders", templateVars);
       })
       .catch((err) => {
