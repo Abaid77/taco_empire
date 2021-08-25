@@ -2,8 +2,9 @@
     <%- include('./partials/_header') %>
 <main class="container-fluid order-layout col-10 offset-1 justify-content-center">
   <article class="user-orders">
-    <div>
+    <div class="orders-title">
       <p class="h4">Your Orders</p>
+      <a href="/orders/<%= user %>" class="btn btn-outline-success">Refresh</a>
     </div>
     <div>
       <table class="table table-striped">
@@ -11,7 +12,7 @@
           <th>Order #</th>
           <th>Order</th>
           <th>Order Time</th>
-          <th>Order Pre-time</th>
+          <th>Order Prep-time</th>
         </tr>
         <tbody id="your-orders">
           <% orders.forEach(order => { %>
