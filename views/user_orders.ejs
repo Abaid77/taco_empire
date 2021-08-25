@@ -24,7 +24,7 @@
                 <%= orderList[order.id].shrimp !== undefined ? `, Shrimp(${orderList[order.id].beef})` : null%>
               </td>
               <td><%= order.start_time %> </td>
-              <td><%= order.duration === 0 ? "pending" : order.duration +" min"%> </td>
+              <td><%= order.duration === 0 ? "Calculating prep time..." : order.duration +" min"%> </td>
             </tr>
           <% }) %>
         </tbody>
