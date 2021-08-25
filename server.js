@@ -76,5 +76,5 @@ app.post("/send-sms/:type", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Taco Empire app listening on port ${PORT}`);
 });
