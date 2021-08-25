@@ -44,6 +44,21 @@ module.exports = (db) => {
       .catch((err) => res.json(err.message));
   });
 
+  router.get("/responded-orders", (req, res) => {
+    db.query(
+      `
+      SELECT orders.*, users.id as user_id,users.name,to_char((select start_at at
+      time zone 'utc' at time zone 'mdt')::timestamp, 'HH:MI:SSPM') AS start_time
+      FROM orders JOIN users ON user_id = users.id
+      WHERE duration > 0 AND completed_at IS NULL;
+    `
+    )
+      .then((response) => {
+        res.json(response.rows);
+      })
+      .catch((err) => res.json(err.message));
+  });
+
   router.put("/", (req, res) => {
     const { orderId, duration } = req.body;
 
