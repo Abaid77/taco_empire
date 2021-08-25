@@ -53,15 +53,16 @@ module.exports = (db) => {
                 dishList.chicken === undefined
                   ? (dishList.chicken = 1)
                   : (dishList.chicken += 1);
+                break;
               case 3:
                 dishList.shrimp === undefined
                   ? (dishList.shrimp = 1)
                   : (dishList.shrimp += 1);
+                break;
             }
           }
           orderList[order.id] = dishList;
         }
-        console.log("orderList", orderList);
         const user = req.session.user_id;
         const templateVars = { user, orders, orderList };
         res.render("user_orders", templateVars);
@@ -73,7 +74,6 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     const { user_id, dish_list } = req.body;
-    console.log("user_id", user_id, "dish_list", dish_list);
     db.query(
       `INSERT INTO orders (user_id,dish_list) VALUES ($1, ARRAY [${dish_list}]);`,
       [user_id]

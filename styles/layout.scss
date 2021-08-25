@@ -16,32 +16,38 @@ main.home-layout{
   justify-content: center;
   align-items: center;
   margin: 1rem;
+  .carousel{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+  }
   .cover-img img{
     width: 100%;
     max-height: 550px;
     border: 5px solid #fff;
     box-shadow: 5px 12px 10px 1px rgba(104, 104, 104, 0.2);
   }
-  .carousel{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 1rem;
-  }
   .small{
     margin: 0 1rem;
     border-radius: 0;
+    max-width: 350px;
     flex-direction: column;
+    background-color: #fff;
+    border: 5px solid #fff;
+    box-shadow: 5px 12px 10px 1px rgba(104, 104, 104, 0.2);
     & > :first-child img{
       box-shadow: none;
+      width: 100%;
     }
     .order-small{
-      flex-direction: row;
+      display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
+      padding:8px 16px;
     }
     a {
       background-color: $primary-color;
+      color: #fff;
     }
   }
 }
