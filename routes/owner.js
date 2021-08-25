@@ -18,6 +18,10 @@ router.use(
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    if (!req.session.user_id || req.session.user_id !== 1) {
+      res.redirect("/login");
+      return;
+    }
     // display owner page
     // check for owners email
     const user = req.session.user_id;
