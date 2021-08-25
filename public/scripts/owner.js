@@ -76,6 +76,7 @@ $(() => {
       },
     }).then((res) => {
       console.log(res);
+      $(event.target).parent().parent().remove();
     });
   });
 });
