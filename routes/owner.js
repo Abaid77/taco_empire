@@ -50,7 +50,9 @@ module.exports = (db) => {
       SELECT orders.*, users.id as user_id,users.name,to_char((select start_at at
       time zone 'utc' at time zone 'mdt')::timestamp, 'HH:MI:SSPM') AS start_time
       FROM orders JOIN users ON user_id = users.id
-      WHERE duration > 0 AND completed_at IS NULL;
+      WHERE duration > 0 AND completed_at IS NULL
+      ORDER BY start_at DESC;
+      ;
     `
     )
       .then((response) => {

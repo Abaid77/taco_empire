@@ -113,7 +113,7 @@ $(() => {
         <td>${order.duration}min</td>
       </tr>
       `;
-      $("#responded-order").prepend($order);
+      $("#responded-order").append($order);
     });
   });
 
