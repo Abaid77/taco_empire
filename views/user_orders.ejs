@@ -19,9 +19,9 @@
             <tr>
               <td><%= order.id %> </td>
               <td>
-                <%= orderList[order.id].beef !== undefined ? `Beef(${orderList[order.id].beef})` : null%>
-                <%= orderList[order.id].chicken !== undefined ? `, Chicken(${orderList[order.id].beef})` : null%>
-                <%= orderList[order.id].shrimp !== undefined ? `, Shrimp(${orderList[order.id].beef})` : null%>
+                <%= orderList[order.id].beef !== undefined ? `Beef(${orderList[order.id].beef})` : ""%>
+                <%= orderList[order.id].chicken !== undefined ? `Chicken(${orderList[order.id].chicken})` : ""%>
+                <%= orderList[order.id].shrimp !== undefined ? `Shrimp(${orderList[order.id].shrimp})` : ""%>
               </td>
               <td><%= order.start_time %> </td>
               <td><%= order.duration === 0 ? "Calculating prep time..." : order.duration +" min"%> </td>

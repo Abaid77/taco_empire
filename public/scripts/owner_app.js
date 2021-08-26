@@ -130,8 +130,9 @@ $(() => {
         duration: $duration,
       },
     }).then((res) => {
-      console.log(res);
+      $.get(`owner/user/${$orderId}`).then((res) => console.log(res));
       $(event.target).parent().parent().remove();
+      window.location = "/owner";
     });
   });
 });
