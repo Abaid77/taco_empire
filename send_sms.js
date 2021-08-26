@@ -9,7 +9,7 @@ const client = require("twilio")(accountSid, authToken);
 const textOwner = () => {
   client.messages
     .create({
-      body: "\nA new order has been received.\n Plese respond on the website!",
+      body: "\nA new order has been received.\n Please respond on the website!",
       from: "+15103234604",
       to: "+15877006592",
     })
