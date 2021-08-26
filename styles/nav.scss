@@ -11,6 +11,18 @@ header{
     height: 50px;
   }
 
+  .collapse.navbar-collapse #collapsed-button{
+    display: flex;
+    margin-bottom: 16px;
+    li{
+      background-color: red;
+      margin-bottom: 8px;
+      a{
+        padding: 4px 8px;
+      }
+    }
+  }
+
   .navbar{
     padding: 0;
   }
