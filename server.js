@@ -72,6 +72,10 @@ app.post("/send-sms/:type", (req, res) => {
   if (req.params.type === "owner") {
     textOwner();
   }
+  if (req.params.type === "user") {
+    const { phone, duration, name, orderId } = req.body;
+    textUser(phone, orderId, duration, name);
+  }
   res.json({ success: true });
 });
 

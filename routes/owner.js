@@ -62,14 +62,13 @@ module.exports = (db) => {
   router.get("/user/:order_id", (req, res) => {
     db.query(
       `
-      SELECT name, phone FROM order JOIN users ON user_id = users.id
-      WHERE order.id = $1;
+      SELECT name, phone FROM orders JOIN users ON user_id = users.id
+      WHERE orders.id = $1;
     `,
       [req.params.order_id]
     )
       .then((response) => {
-        console.log(response.rows);
-        res.json(response.rows);
+        res.json(response.rows[0]);
       })
       .catch((err) => res.json(err.message));
   });

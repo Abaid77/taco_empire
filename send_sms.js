@@ -16,10 +16,10 @@ const textOwner = () => {
     .then((message) => console.log(message.sid));
 };
 
-const textUser = (phone, order_id, duration) => {
+const textUser = (phone, order_id, duration, name) => {
   client.messages
     .create({
-      body: `\nDO NOT REPLY \nThank you for ordering from Taco Empire!
+      body: `\nDO NOT REPLY \nThank you ${name} for ordering from Taco Empire!
       \n Your order number is ${order_id}.\n It will be ready in ${duration} minutes.`,
       from: "+15103234604",
       to: phone,

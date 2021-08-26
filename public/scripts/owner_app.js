@@ -129,10 +129,20 @@ $(() => {
         orderId: $orderId,
         duration: $duration,
       },
-    }).then((res) => {
-      $.get(`owner/user/${$orderId}`).then((res) => console.log(res));
-      $(event.target).parent().parent().remove();
-      window.location = "/owner";
+    }).then(() => {
+      $.get(`owner/user/${$orderId}`).then((user) => {
+        const { name, phone } = user;
+        const message = {
+          name,
+          phone,
+          duration: $duration,
+          orderId: $orderId,
+        };
+        $.post("/send-sms/user", message).then(() => {
+          $(event.target).parent().parent().remove();
+          window.location = "/owner";
+        });
+      });
     });
   });
 });
