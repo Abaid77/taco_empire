@@ -41,3 +41,16 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- Body-parser 1.19.0 or above
+- Chalk 2.4.2 or above
+- Cookie-session 1.4.0 or above
+- Dotenv 2.0.0 or above
+- Ejs 2.6.2 or above
+- Express 4.17.1 or above
+- Morgan 1.9.1 or above
+- Node-sass-middleware 0.11.0 or above
+- PG-native" 3.0.0 or above
+- Twilio 3.67.0 or above
+
+## Dev Dependencies
+- nodemon 1.19.1 or above
