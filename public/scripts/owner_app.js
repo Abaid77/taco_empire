@@ -90,7 +90,7 @@ $(() => {
 
       const $order = `
       <tr>
-        <td>${order.id}</td>
+        <td class="order-id">${order.id}</td>
         <td>${order.name}</td>
         <td>
           ${
@@ -111,9 +111,25 @@ $(() => {
         </td>
         <td>${order.start_time}</td>
         <td>${order.duration}min</td>
+        <td class='btn btn-outline-success completed_at'>Completed</td>
       </tr>
       `;
       $("#responded-order").append($order);
+    });
+  });
+
+  $("#responded-order").on("click", function (event) {
+    const $orderId = $(event.target).siblings(".order-id").text();
+    $.ajax({
+      type: "PATCH",
+      url: "/owner/",
+      data: {
+        orderId: $orderId,
+      },
+    }).then((res) => {
+      console.log(res);
+      $(event.target).parent().remove();
+      window.location = "/owner";
     });
   });
 

@@ -93,5 +93,23 @@ module.exports = (db) => {
       .catch((err) => res.json(err.message));
   });
 
+  router.patch("/", (req, res) => {
+    const { orderId } = req.body;
+
+    db.query(
+      `
+      UPDATE orders SET completed_at = to_timestamp(${Date.now()} / 1000.0)
+      WHERE id = $1
+      RETURNING *
+      ;
+    `,
+      [orderId]
+    )
+      .then((response) => {
+        res.json(response.rows[0]);
+      })
+      .catch((err) => res.json(err.message));
+  });
+
   return router;
 };
