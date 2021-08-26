@@ -114,9 +114,9 @@ $(() => {
       $.post("/orders/", { user_id: user_id, dish_list: dishList }).then(
         (res) => {
           if (res.success) {
-            // $.post("/send-sms/owner").then((res) => {
-            //   console.log(res);
-            // });
+            $.post("/send-sms/owner").then((res) => {
+              console.log(res);
+            });
             window.location = `/orders/${user_id}`;
           }
         }
