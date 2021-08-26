@@ -11,11 +11,16 @@ header{
     height: 50px;
   }
 
-  .collapse.navbar-collapse #collapsed-button{
+  .navbar{
+    padding: 0;
+  }
+}
+
+@media screen and (max-width:991px) {
+  #collapsed-button{
     display: flex;
     margin-bottom: 16px;
     li{
-      background-color: red;
       margin-bottom: 8px;
       a{
         padding: 4px 8px;
@@ -23,9 +28,4 @@ header{
     }
   }
 
-  .navbar{
-    padding: 0;
-  }
 }
-
-
