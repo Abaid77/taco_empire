@@ -1,5 +1,9 @@
 header{
   background-color: #fb8c00;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
   a{
     color: #fff!important;
   }
@@ -16,7 +20,7 @@ header{
   }
 }
 
-@media screen and (max-width:991px) {
+@media only screen and (max-width:991px) {
   #collapsed-button{
     display: flex;
     margin-bottom: 16px;

@@ -2,7 +2,8 @@
 <%- include('./partials/_header') %>
 
 <main class="col-md-6 offset-md-3 mt-4">
-  <p class="h5 text-center">Register</p>
+  <article class="login-form">
+    <p class="h5 text-center">Register</p>
   <form action="/login/register" method="POST" id='login'>
     <div class="form-group">
       <label for="name">Name</label>
@@ -22,6 +23,7 @@
     </div>
     <button type="submit" class="btn btn-primary mt-2">Login</button>
   </form>
+  </article>
 </main>
 
 <%- include('./partials/_footer') %>

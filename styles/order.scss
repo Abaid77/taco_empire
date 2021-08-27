@@ -67,7 +67,7 @@ article.menu-item {
   }
 }
 
-@media screen and (max-width: 1415px) {
+@media only screen and (max-width: 1415px) {
   main.order-layout{
     flex-direction: column;
     justify-content: center;
@@ -86,7 +86,7 @@ article.menu-item {
   }
 }
 
-@media screen and (max-width: 650px) {
+@media only screen and (max-width: 650px) {
   .order-summary{
     flex-basis: none;
     justify-content: center;

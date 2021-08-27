@@ -34,7 +34,7 @@ article.owner{
   }
 }
 
-@media screen and (max-width:800px) {
+@media only screen and (max-width:800px) {
   .owner .input-group{
     flex-wrap: nowrap;
     flex-shrink: 2;

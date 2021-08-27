@@ -1,13 +1,23 @@
 // See: https://sass-lang.com/
 $primary-color:#fb8c00;
 
+html, body {
+  height: 100%!important;
+}
+
 body {
+  display: flex;
+  flex-direction: column;
   background-color: #eeeeee;
   background-image: url("https://www.transparenttextures.com/patterns/climpek.png");
 }
 
-main{
-  min-height: 80vh;
+main {
+  margin-top: 80px!important;
+  flex: 1 0 auto!important;
+}
+footer {
+  flex-shrink: 0!important;
 }
 
 main.home-layout{
@@ -55,7 +65,7 @@ main.home-layout{
   }
 }
 
-@media screen and (max-width: 650px){
+@media only screen and (max-width: 650px){
   main.home-layout{
     .carousel{
       flex-direction: column;
