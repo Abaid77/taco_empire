@@ -87,10 +87,16 @@ The app includes the following functionality:
   - Note: nodemon is used, so you should not have to restart your server
 8. Visit `http://localhost:8080/`
 
+Please note: 
+ - To see the owners page you will need to login as 1@example.com with any password
+ - You can log in with any other email and password to be logged in as user 2
+ - The owners page needs to be refreshed to see new orders
+ - The app has been setup to work on the local time of the server, if you need to convert from UTC some of the database queries will need to be adjusted
+
   ## Screenshots
 
-!["Screenshot of character counter"](https://github.com/Abaid77/tweeter/blob/master/docs/character-counter.png?raw=true)
-###### Screenshot of character counter in action
+!["Screenshot of character counter"](/public/images/ss-index-mobile.png)
+###### Index page mobile version 
 
 ## Warnings & Tips
 

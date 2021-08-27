@@ -32,8 +32,7 @@ module.exports = (db) => {
       return;
     }
     db.query(
-      `SELECT *, to_char((select start_at at
-        time zone 'utc' at time zone 'mdt')::timestamp, 'HH:MI:SSPM') AS start_time
+      `SELECT *, to_char((select start_at)::timestamp, 'HH:MI:SSPM') AS start_time
         FROM orders WHERE user_id = $1 AND completed_at IS NULL
         ORDER BY id DESC;`,
       [req.session.user_id]
