@@ -44,21 +44,21 @@ module.exports = (db) => {
           const dishList = {};
           for (let dish of order.dish_list) {
             switch (dish) {
-              case 1:
-                dishList.beef === undefined
-                  ? (dishList.beef = 1)
-                  : (dishList.beef += 1);
-                break;
-              case 2:
-                dishList.chicken === undefined
-                  ? (dishList.chicken = 1)
-                  : (dishList.chicken += 1);
-                break;
-              case 3:
-                dishList.shrimp === undefined
-                  ? (dishList.shrimp = 1)
-                  : (dishList.shrimp += 1);
-                break;
+            case 1:
+              dishList.beef === undefined
+                ? (dishList.beef = 1)
+                : (dishList.beef += 1);
+              break;
+            case 2:
+              dishList.chicken === undefined
+                ? (dishList.chicken = 1)
+                : (dishList.chicken += 1);
+              break;
+            case 3:
+              dishList.shrimp === undefined
+                ? (dishList.shrimp = 1)
+                : (dishList.shrimp += 1);
+              break;
             }
           }
           orderList[order.id] = dishList;
@@ -78,8 +78,7 @@ module.exports = (db) => {
       `INSERT INTO orders (user_id,dish_list) VALUES ($1, ARRAY [${dish_list}]);`,
       [user_id]
     )
-      .then((data) => {
-        const orders = data.rows;
+      .then(() => {
         res.json({ success: true });
       })
       .catch((err) => {

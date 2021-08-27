@@ -3,7 +3,7 @@ $(() => {
   let chickenTacoCount = 0;
   let shrimpTacoCount = 0;
 
-  $("#beef-taco").on("submit", function (event) {
+  $("#beef-taco").on("submit", function(event) {
     event.preventDefault();
 
     const $qty = $(this).closest("form").find("input");
@@ -26,7 +26,7 @@ $(() => {
       }
     }
     // Event handler to remove order item
-    $("#remove-beef").on("click", function () {
+    $("#remove-beef").on("click", function() {
       beefTacoCount = 0;
       refresh();
       $("#table-summary").find("#beef").empty();
@@ -34,7 +34,7 @@ $(() => {
   });
 
   // Chicken Order Summary
-  $("#chicken-taco").on("submit", function (event) {
+  $("#chicken-taco").on("submit", function(event) {
     event.preventDefault();
 
     const $qty = $(this).closest("form").find("input");
@@ -58,7 +58,7 @@ $(() => {
     }
 
     // Event handler to remove order item
-    $("#remove-chicken").on("click", function () {
+    $("#remove-chicken").on("click", function() {
       chickenTacoCount = 0;
       refresh();
       $("#table-summary").find("#chicken").empty();
@@ -66,7 +66,7 @@ $(() => {
   });
 
   // Shrimp Order Summary
-  $("#shrimp-taco").on("submit", function (event) {
+  $("#shrimp-taco").on("submit", function(event) {
     event.preventDefault();
 
     const $qty = $(this).closest("form").find("input");
@@ -90,14 +90,14 @@ $(() => {
     }
 
     // Event handler to remove order item
-    $("#remove-shrimp").on("click", function () {
+    $("#remove-shrimp").on("click", function() {
       shrimpTacoCount = 0;
       refresh();
       $("#table-summary").find("#shrimp").empty();
     });
   });
 
-  $("#place-order").on("click", function (event) {
+  $("#place-order").on("click", function() {
     const dishList = [];
     // Create dishlist array to add to DB
     for (let x = 0; x < beefTacoCount; x++) {
@@ -114,9 +114,7 @@ $(() => {
       $.post("/orders/", { user_id: user_id, dish_list: dishList }).then(
         (res) => {
           if (res.success) {
-            $.post("/send-sms/owner").then((res) => {
-              console.log(res);
-            });
+            $.post("/send-sms/owner");
             window.location = `/orders/${user_id}`;
           }
         }

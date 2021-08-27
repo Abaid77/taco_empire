@@ -16,7 +16,7 @@ router.use(
   })
 );
 
-module.exports = (db) => {
+module.exports = () => {
   router.get("/", (req, res) => {
     // display login page
     const user = req.session.user_id;
@@ -35,7 +35,6 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     const email = req.body.email;
-    console.log(email);
     // check for owners email
     if (email === "1@example.com") {
       req.session.user_id = 1;

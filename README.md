@@ -95,8 +95,31 @@ Please note:
 
   ## Screenshots
 
-!["Screenshot of character counter"](/public/images/ss-index-mobile.png)
+!["Screenshot of index page mobile"](https://github.com/Abaid77/taco_empire/blob/master/public/images/ss-index-mobile.png?raw=true)
 ###### Index page mobile version 
+
+!["Screenshot of index page tablet"](https://github.com/Abaid77/taco_empire/blob/master/public/images/ss-index-tablet.png?raw=true)
+###### Index page tablet version 
+
+!["Screenshot of index page desktop"](https://github.com/Abaid77/taco_empire/blob/master/public/images/ss-index-desktop.png?raw=true)
+###### Index page desktop version 
+
+!["Screenshot of order page mobile"](https://github.com/Abaid77/taco_empire/blob/master/public/images/ss-order-mobile.png?raw=true)
+###### Order page mobile version 
+
+!["Screenshot of order page tablet"](https://github.com/Abaid77/taco_empire/blob/master/public/images/ss-order-tablet.png?raw=true)
+###### Order page tablet version 
+
+!["Screenshot of order page desktop"](https://github.com/Abaid77/taco_empire/blob/master/public/images/ss-order-desktop.png?raw=true)
+###### Order page desktop version 
+
+!["Screenshot of current orders page"](https://github.com/Abaid77/taco_empire/blob/master/public/images/ss-current-orders.png?raw=true)
+###### Current Orders page 
+
+!["Screenshot of owners page"](https://github.com/Abaid77/taco_empire/blob/master/public/images/ss-owner.png?raw=true)
+###### Owners page 
+
+
 
 ## Warnings & Tips
 
