@@ -7,6 +7,16 @@ Taco Empire is a multi-page food ordering app for a single restaurant. Hungry cl
 
 This repository was created using a node skeleton from Lighthouse Labs. We have cloned there starter repository and used it to practice HTML, CSS, SASS, Bootstrap, jQuery and AJAX front end skills, and our Node, Express and Postgress back-end skills.
 
+## Authors
+Created by:
+
+Amit Baid 
+- amit.baid@hotmail.com 
+- [Github](https://github.com/Abaid77)
+
+Nahom Mehanzel
+ - You can find me on [LinkedIn](https://www.linkedin.com/in/nahom-mehanzel/) or [Github](https://github.com/NahomKibreab).
+
 ## App Functions
 
 The app includes the following functionality:
