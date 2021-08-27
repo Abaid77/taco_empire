@@ -18,18 +18,19 @@ router.use(
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    // check for owners email, otherwise redirect to login
     if (!req.session.user_id || req.session.user_id !== 1) {
       res.redirect("/login");
       return;
     }
     // display owner page
-    // check for owners email
     const user = req.session.user_id;
     const templateVars = { user };
     res.render("owner", templateVars);
   });
 
   router.get("/new-orders", (req, res) => {
+    // database query to see new orders
     db.query(
       `
       SELECT orders.*, users.id as user_id,users.name,to_char((select start_at)::timestamp, 'HH:MI:SSPM') AS start_time
@@ -44,6 +45,7 @@ module.exports = (db) => {
   });
 
   router.get("/responded-orders", (req, res) => {
+    // database query to see responded orders
     db.query(
       `
       SELECT orders.*, users.id as user_id,users.name,to_char((select start_at)::timestamp, 'HH:MI:SSPM') AS start_time
@@ -60,6 +62,7 @@ module.exports = (db) => {
   });
 
   router.get("/user/:order_id", (req, res) => {
+    // get info for SMS text
     db.query(
       `
       SELECT name, phone FROM orders JOIN users ON user_id = users.id
@@ -75,7 +78,7 @@ module.exports = (db) => {
 
   router.put("/", (req, res) => {
     const { orderId, duration } = req.body;
-
+    // updating the duration in database
     db.query(
       `
       UPDATE orders SET duration = $1
@@ -93,7 +96,7 @@ module.exports = (db) => {
 
   router.patch("/", (req, res) => {
     const { orderId } = req.body;
-
+    // complete the order in the database
     db.query(
       `
       UPDATE orders SET completed_at = to_timestamp(${Date.now()} / 1000.0)

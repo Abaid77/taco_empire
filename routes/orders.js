@@ -10,10 +10,12 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    // check if logged in, otherwise redirect to login
     if (!req.session.user_id) {
       res.redirect("/login");
       return;
     }
+    // database query to get all orders
     db.query(`SELECT * FROM orders;`)
       .then((data) => {
         const orders = data.rows;
@@ -27,10 +29,12 @@ module.exports = (db) => {
   });
 
   router.get("/:user_id", (req, res) => {
+    // check if logged in, otherwise redirect to login
     if (!req.session.user_id) {
       res.redirect("/login");
       return;
     }
+    // database query to get time of order
     db.query(
       `SELECT *, to_char((select start_at)::timestamp, 'HH:MI:SSPM') AS start_time
         FROM orders WHERE user_id = $1 AND completed_at IS NULL
@@ -38,6 +42,7 @@ module.exports = (db) => {
       [req.session.user_id]
     )
       .then((data) => {
+        // convert dishlist array to readable
         const orders = data.rows;
         const orderList = {};
         for (let order of orders) {
@@ -74,6 +79,7 @@ module.exports = (db) => {
 
   router.post("/", (req, res) => {
     const { user_id, dish_list } = req.body;
+    // add a new order to the orders table
     db.query(
       `INSERT INTO orders (user_id,dish_list) VALUES ($1, ARRAY [${dish_list}]);`,
       [user_id]

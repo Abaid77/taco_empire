@@ -17,23 +17,25 @@ router.use(
 );
 
 module.exports = () => {
+  // display login page
   router.get("/", (req, res) => {
-    // display login page
     const user = req.session.user_id;
     const templateVars = { user };
     res.render("./login", templateVars);
   });
 
   router.get("/register", (req, res) => {
+    // display registration page
     res.render("./register");
   });
 
   router.get("/:user_id", (req, res) => {
-    // req.session.user_id = req.params.id;
+    // redirect to home
     res.redirect("/");
   });
 
   router.post("/", (req, res) => {
+    //login users
     const email = req.body.email;
     // check for owners email
     if (email === "1@example.com") {
@@ -47,6 +49,7 @@ module.exports = () => {
   });
 
   router.post("/logout", (req, res) => {
+    // logout and clear cookies
     req.session = null;
     res.redirect("/");
   });

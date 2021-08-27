@@ -1,8 +1,11 @@
+// For demo purposes we hard coded 3 items in. However this page serves as the base to allow for items to be pulled from the database.
+
 $(() => {
   let beefTacoCount = 0;
   let chickenTacoCount = 0;
   let shrimpTacoCount = 0;
 
+  // Beef Taco Order Summary
   $("#beef-taco").on("submit", function(event) {
     event.preventDefault();
 
@@ -33,7 +36,7 @@ $(() => {
     });
   });
 
-  // Chicken Order Summary
+  // Chicken Taco Order Summary
   $("#chicken-taco").on("submit", function(event) {
     event.preventDefault();
 

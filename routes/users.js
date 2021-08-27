@@ -5,6 +5,8 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
+// Please note for example purposes the user is always set to user 2. This page serves as the base for adding full login and user functionality
+
 const express = require("express");
 const router = express.Router();
 
